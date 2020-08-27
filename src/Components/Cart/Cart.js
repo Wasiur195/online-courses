@@ -13,19 +13,14 @@ const Cart = (props) => {
 }
 
     //total price
-     let total = 0;
-    for (let i =0; i< cart.length; i++){
-        const course = cart[i];
-        total= total+ course.price;
-    }
-
+    const totalPrice=cart.reduce((total,prd)=>total+prd.price,0);
  
    // Tax
    const tax =(total/10).toFixed(2);
 
    // Grand total cost
 
-   const grandTotal =(total+ Number(tax)).toFixed(2);
+   const grandTotal =(totalPrice+ Number(tax)).toFixed(2);
 
    console.log(grandTotal)
 
